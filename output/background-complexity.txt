@@ -1,0 +1,29 @@
+Background images compressibility ratio (%) summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  9.147  10.112  10.891  10.784  11.328  11.991 
+Mean background detection times summary (secs):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.052   2.514   3.386   3.637   4.322   6.306 
+[1] 1.232943
+
+Is there a relationship between background image complexity
+  (estimated as 1/compressibility) and conspicuousness?
+
+Call:
+lm(formula = Secs ~ compPc, data = agg)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.78738 -0.87014  0.00003  0.54156  1.98903 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  -7.0801     2.5739  -2.751 0.010306 *  
+compPc        0.9938     0.2381   4.174 0.000263 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9852 on 28 degrees of freedom
+Multiple R-squared:  0.3835,	Adjusted R-squared:  0.3615 
+F-statistic: 17.42 on 1 and 28 DF,  p-value: 0.0002632
+

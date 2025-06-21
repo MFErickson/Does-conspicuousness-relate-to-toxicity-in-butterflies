@@ -1,0 +1,3 @@
+Downloaded at 11:00 pm 26/02/2025 (Sydney time) 
+After cleaning, 2751 sessions from 1716 users with 152744 scores: 10386 escapes, 85129 misses and 57229 hits
+  Removed 417 problematic sessions
