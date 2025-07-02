@@ -1,5 +1,5 @@
 #Functions to use in analyses script
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:08:31 2025 ------------------------------
 
