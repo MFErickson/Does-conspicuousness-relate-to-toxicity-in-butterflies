@@ -36,6 +36,7 @@ the folder `output` contains:
 - smaller version of the above plot
 - image of all of the butterfly images filtered by death porcentage
 - Durga plot comparing mean detection time of dorsal and ventral side of images
+- Correlation plot of death proportion and dorsal/ventral detection time
 
 ## 4. **R** 
 the folder `R` contains:
