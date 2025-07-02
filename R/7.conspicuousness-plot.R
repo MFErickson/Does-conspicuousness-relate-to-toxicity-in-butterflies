@@ -1,5 +1,5 @@
 # Plots data from brms analyses
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 # Wed Jul  2 13:48:58 2025 ------------------------------
 
