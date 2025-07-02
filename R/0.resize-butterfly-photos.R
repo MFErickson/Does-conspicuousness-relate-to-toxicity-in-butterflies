@@ -1,5 +1,5 @@
 # Resizes butterfly photos so they all have similar numbers of non-transparent pixels
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:13:24 2025 ------------------------------
 
