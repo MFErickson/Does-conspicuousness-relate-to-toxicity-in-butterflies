@@ -1,5 +1,5 @@
 # fits brms model
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:30:08 2025 ------------------------------
 
