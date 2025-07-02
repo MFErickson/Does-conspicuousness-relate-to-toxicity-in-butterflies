@@ -7,7 +7,7 @@
 # conspicuous butterflies should have a smaller range of detection times, i.e.
 # they should always be fairly conspicuous.
 
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:22:40 2025 ------------------------------
 
