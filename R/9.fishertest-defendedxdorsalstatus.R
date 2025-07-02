@@ -1,5 +1,5 @@
 # chi2 for dorsal side of butterflies are were more stable across backgrounds on defended species
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:35:56 2025 ------------------------------
 
