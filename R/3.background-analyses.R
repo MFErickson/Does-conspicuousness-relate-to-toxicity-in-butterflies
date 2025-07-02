@@ -1,5 +1,5 @@
 # Are the 3 backgrounds of each type actually similar?
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:19:59 2025 ------------------------------
 
