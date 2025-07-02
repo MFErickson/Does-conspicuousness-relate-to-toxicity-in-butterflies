@@ -8,7 +8,7 @@
 # Functions to download data from the Firebase cloud database.
 # We use the realtime Database, NOT Cloud Firestore.
 
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:15:01 2025 ------------------------------
 
