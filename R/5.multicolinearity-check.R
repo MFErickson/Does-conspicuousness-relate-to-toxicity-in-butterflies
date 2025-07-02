@@ -1,5 +1,5 @@
 # Check multicolinearity of brms predictors
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 
 # Fri Jun 20 16:26:21 2025 ------------------------------
