@@ -39,9 +39,8 @@ g1
 
 
 
-ggsave("output/figures/g1.png",
-       g1,
-       width = 10,
-       height = 5,
-       dpi = 300
-       )
+g1 <- plot_grid(
+  p1, p2,
+  labels = c("(a)", "(b)"),
+  label_fontface = "italic"
+)
