@@ -1,5 +1,5 @@
 # chi2 for ventral side of butterflies are were more stable across backgrounds on defended species
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:38:36 2025 ------------------------------
 
