@@ -1,7 +1,7 @@
 # Plots data from brms analyses
 #Marilia F Erickson
 #last update
-# Fri Jun 20 16:33:00 2025 ------------------------------
+# Wed Jul  2 13:48:58 2025 ------------------------------
 
 
 #packages ----
@@ -34,13 +34,18 @@ p2 <- ggplot(dt, aes(x = Ventral.time, y = Daphnia.mortality.p)) +
 
 p2
 
-g1 <- plot_grid(p1,p2, labels= "auto")
-g1
-
-
-
 g1 <- plot_grid(
   p1, p2,
   labels = c("(a)", "(b)"),
   label_fontface = "italic"
 )
+g1
+
+
+
+ggsave("output/g1.png",
+       g1,
+       width = 10,
+       height = 5,
+       dpi = 300
+       )
