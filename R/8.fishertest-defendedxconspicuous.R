@@ -1,5 +1,5 @@
 # chi2 for defended butterflies are more conspicuous on ventral side
-#Marilia F Erickson
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:34:10 2025 ------------------------------
 
