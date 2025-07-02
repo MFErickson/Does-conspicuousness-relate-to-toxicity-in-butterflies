@@ -1,5 +1,5 @@
 #Generates butterfly image plots
-#Jim Mclean
+#XXXXXXXX
 #last update
 # Fri Jun 20 16:05:54 2025 ------------------------------
 
