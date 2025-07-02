@@ -1,5 +1,5 @@
 # Proceedings of the Royal Society B: Biological Sciences
-_Marilia Fernandes Erickson_
+
     
 ***
 
@@ -48,4 +48,4 @@ the folder `R` contains:
 
 When using the __data available__ in this repository, please cite the original publication.
 
-Contact mariliaerickson@gmail.com for any further information.  
+Contact XXXXXXXXXXXXXXXXX@gmail.com for any further information.  
