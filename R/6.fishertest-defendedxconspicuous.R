@@ -1,7 +1,7 @@
 # chi2 for defended butterflies are more conspicuous on ventral side
 #XXXXXXXX
 #last update
-# Fri Jun 20 16:34:10 2025 ------------------------------
+# Thu Sep 25 17:36:39 2025 ------------------------------
 
 #packages ----
 
@@ -10,8 +10,8 @@ library(ggplot2)
 #import data
 dt <- read.csv("output/conspicuousness.csv")
 
-# Exclude rows where Time.difference == 0
-dt <- dt[dt$Time.difference != 0, ]
+# Exclude rows where Time.difference is between -0.25 and 0.25
+dt <- dt[dt$Time.difference < -0.25 | dt$Time.difference > 0.25, ]
 
 # Classify as 'dorsal' or 'ventral' based on Time.difference
 dt$cons_side <- ifelse(dt$Time.difference > 0, "dorsal", "ventral")

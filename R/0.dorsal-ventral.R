@@ -82,7 +82,7 @@ JPlotToPNG("output/conspicuous-butts-ventral.png", {
   ventral <- comb[!duplicated(comb$Ventral.photo) & !is.na(comb$Ventral.photo), ]
   ventral <- ventral[order(ventral$Ventral.time, decreasing = TRUE), ]
   label <- paste(ventral$Binomial, ifelse(is.na(ventral$Sex), "", " "))
-  col <- ifelse(ventral$Ventral.Class == "Conspicuous", CLS_COL[1], CLS_COL[2])
+  col <- ifelse(ventral$Ventral.Class == "Conspicuous", CLS_COL[2], CLS_COL[2]) #removed red for conspicuous
   caption <- sprintf("%.1f s, %s%% mortality", ventral$Ventral.time / 1000, signif(100 * ventral$Daphnia.mortality.p, 2))
   font <- ifelse(ventral$Daphnia.mortality.p > 0.2, 2, 1)
   
@@ -111,7 +111,7 @@ JPlotToPNG("output/conspicuous-butts-dorsal.png", {
   dorsal <- comb[!duplicated(comb$Dorsal.photo) & !is.na(comb$Dorsal.photo), ]
   dorsal <- dorsal[order(dorsal$Dorsal.time, decreasing = TRUE), ]
   label <- paste(dorsal$Binomial, ifelse(is.na(dorsal$Sex), "", " "))
-  col <- ifelse(dorsal$Dorsal.Class == "Conspicuous", CLS_COL[1], CLS_COL[2])
+  col <- ifelse(dorsal$Dorsal.Class == "Conspicuous", CLS_COL[2], CLS_COL[2]) #removed for conspicuouss
   caption <- sapply(seq_len(nrow(dorsal)), function(i) {
     t <- sprintf("%.1f s,", dorsal$Dorsal.time[i] / 1000)
     m <- sprintf("%s%% mortality", signif(100 * dorsal$Daphnia.mortality.p[i], 2))

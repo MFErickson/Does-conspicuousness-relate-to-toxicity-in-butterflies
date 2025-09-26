@@ -1,7 +1,0 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
-
-# Don't store private database credentials
-.Renviron

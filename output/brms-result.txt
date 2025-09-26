@@ -1,3 +1,5 @@
+
+> print(summary(brms_model))
  Family: binomial 
   Links: mu = logit 
 Formula: deaths | trials(N.daphnia) ~ Dorsal.time_scaled + Ventral.time_scaled + (1 | gr(Phylo, cov = phylo_cov)) 
@@ -19,3 +21,5 @@ Ventral.time_scaled    -0.06      0.10    -0.26     0.15 1.00     1774     1534
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).
+
+> sink()
