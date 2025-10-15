@@ -31,10 +31,11 @@ the folder `output` contains:
 - image of all of the butterfly images filtered by death percentage
 - Correlation plot of death proportion and dorsal/ventral detection time
 - Phylogenetic tree plotting genus effect on toxicity
+- plot analysing correlating detection time and number of plays.png
 
 ## 4. **R** 
 the folder `R` contains:
-- 10 scripts described in the README.txt file
+- 11 scripts described in the README.txt file
 - CSV-README.txt file that describes the variables in the "conspicuoussness.csv" spreadsheet
 - download-stats. txt which timestamps when the data was downloaded
 - README.txt which describes the scripts on this folder

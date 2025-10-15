@@ -11,6 +11,7 @@ Summary of files in R folder
 5.conspicoussness-plot: plots data from brms model.
 6.fishertest-defendedxconspicous.R:  tests if defended butterflies are more conspicuous on ventral side.
 7.Plot phylo effect.R: plots phylogenetic effect output from script 4.
+8.player-learning.R: Analyses if players get better after multiple plays
 
 
 CSV-README.txt: Contents of the conspicuousness.csv file.
