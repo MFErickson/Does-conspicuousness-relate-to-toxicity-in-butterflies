@@ -1,0 +1,20 @@
+ Family: binomial 
+  Links: mu = logit 
+Formula: deaths | trials(N.daphnia) ~ MeanAbsDiff_scaled + (1 | gr(Phylo, cov = phylo_cov)) 
+   Data: dt_summary_clean (Number of observations: 59) 
+  Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 10;
+         total post-warmup draws = 1600
+
+Multilevel Hyperparameters:
+~Phylo (Number of levels: 43) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.15      0.19     0.83     1.57 1.00     1504     1491
+
+Regression Coefficients:
+                   Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept             -1.20      0.44    -2.04    -0.32 1.00     1441     1495
+MeanAbsDiff_scaled    -0.27      0.08    -0.43    -0.12 1.00     1729     1380
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).

@@ -1,9 +1,7 @@
 # fits brms model
 #XXXXXXXX
 #last update
-# Fri Jun 20 16:30:08 2025 ------------------------------
-
-
+# Wed Oct 15 16:02:14 2025 ------------------------------
 
 # packages ----
 library(ape)
@@ -20,7 +18,7 @@ library(dplyr)
 tree <- read.nexus("data/AA154_secondary_only_strategyA.tre")
 dt <- read.csv("output/conspicuousness.csv")
 
-
+#filter columns
 dt <- dt[, c("Key","Ventral.time", "Dorsal.time", "N.daphnia", "deaths", "Phylo")]
 
 # Replace NA in Dorsal.time with the mean of the non-missing values 
@@ -43,12 +41,13 @@ phylo_cov <- vcv(tree_pruned, corr = TRUE)
 # Fit the Bayesian model for Dorsal & Ventral Conspicuoussness
 set.seed(1)
 
-# Define and run the model ----
+# Scale variables
 dt_filtered$Dorsal.time_scaled <- scale(dt_filtered$Dorsal.time)
 dt_filtered$Ventral.time_scaled <- scale(dt_filtered$Ventral.time)
 
+# Define and run the model ----
 brms_model <- brm(
-  deaths | trials(N.daphnia) ~ Dorsal.time_scaled + Ventral.time_scaled +
+  deaths | trials(N.daphnia) ~ Dorsal.time_scaled + Ventral.time_scaled + 
     (1 | gr(Phylo, cov = phylo_cov)),
   data = dt_filtered,
   family = binomial(),

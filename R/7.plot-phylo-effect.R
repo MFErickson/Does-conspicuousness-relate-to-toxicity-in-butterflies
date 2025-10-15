@@ -14,7 +14,7 @@ library(ape)
 library(ggtree)
 library(ggplot2)
 
-#Must run the 4.brms script and leave objects in envoriment before running this script
+#Must run the 4.brms script and leave objects in environment before running this script
 
 
 # 1. Extract posterior effects and collapse Phylo -------------------------

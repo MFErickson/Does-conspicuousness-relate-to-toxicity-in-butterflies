@@ -29,7 +29,7 @@ the folder `output` contains:
 - image of all ventral side of butterflies organized by detection time and kill percentage
 - spreadsheet build from the data spreadsheet that calculates all our variables. For description please see CSV-README.txt of R folder.
 - image of all of the butterfly images filtered by death percentage
-- Correlation plot of death proportion and dorsal/ventral detection time
+- Correlation plot of death proportion and dorsal/ventral detection time and of mean time difference and toxicity
 - Phylogenetic tree plotting genus effect on toxicity
 - plot analysing correlating detection time and number of plays.png
 
