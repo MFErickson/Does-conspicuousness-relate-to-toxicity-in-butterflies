@@ -1,9 +1,12 @@
 #Analyses effect of number of plays of the same player on data
 #XXXXXXXX
 #last update
-# Wed Oct 15 11:16:05 2025 ------------------------------
+# Tue Oct 21 15:41:27 2025 ------------------------------
 
+#load packages
 library(JUtils)
+library(lme4)
+library(lmerTest)
 # Do players get better at the game if they play repeatedly?
 
 
@@ -38,14 +41,18 @@ xx$user.n.games <- sapply(xx$userId, function(u) max(xx$userGameCount[xx$userId 
 # games
 JPlotToPNG("output/player-learning.png", {
   par(mar = c(5, 4, 1, 1) + 0.1)
-  plot(time ~ userGameCount, xx[xx$user.n.games > 1 & xx$user.n.games < 15, ], pch = 16, col = adjustcolor(4, 0.1),
+  # plot(time ~ userGameCount, xx[xx$user.n.games > 1 & xx$user.n.games < 15, ], pch = 16, col = adjustcolor(4, 0.1),
+  plot(time ~ userGameCount, xx[xx$user.n.games > 1, ], pch = 16, col = adjustcolor(4, 0.1),
        xlab = "Player's game number", ylab = "Detection time (ms)")
-  l <- lm(time ~ userGameCount, xx[xx$user.n.games > 1 & xx$user.n.games < 15, ])
-  abline(l, col = 2)
+  l <- lmer(time ~ userGameCount + (1|userId), xx[xx$user.n.games > 1, ])
+  p <- predict(l, newdata = data.frame(userGameCount = seq(1, max(xx$userGameCount)), userId = xx$userId[1]), type = "response")
+  lines(p, col = 2)
   sl <- summary(l)
   print(sl)
-  cat(sprintf("Yes, players' detection time decreased by around %g milliseconds per game (p = %g),\n  but it only explains %g%% of the total variation (adjusted r^2 = %g)\n",
-              -coefficients(sl)[2, 1], coefficients(sl)[2, 4], 100 * sl$adj.r.squared, sl$adj.r.squared))
+  rsq <- r.squaredGLMM(l)
+  print(rsq)
+  cat(sprintf("Yes, players' detection time decreased by around %g milliseconds (%g secs) per game (p = %g),\n  but it only explains %g%% of the total variation (marginal, i.e. fixed effects only r^2 = %g)\n",
+              -coefficients(sl)[2, 1], -coefficients(sl)[2, 1] / 1000, coefficients(sl)[2, 5], 100 * rsq[1], rsq[1]))
   
 }, width = 1200, res = 140)
 

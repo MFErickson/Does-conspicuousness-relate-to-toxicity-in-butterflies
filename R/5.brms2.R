@@ -1,6 +1,6 @@
 # fits brms model for MeanAbsDiff
 # Last update
-# Wed Oct 15 19:07:45 2025 ------------------------------
+# Tue Oct 21 19:29:33 2025 ------------------------------
 
 
 # packages ----
@@ -9,6 +9,7 @@ library(brms)
 library(ggplot2)
 library(performance)
 library(dplyr)
+library(cowplot)
 
 # Import data ----
 tree <- read.nexus("data/AA154_secondary_only_strategyA.tre")
@@ -98,3 +99,115 @@ plot(residuals[, 1], residuals[, 2], xlab = "Fitted Values", ylab = "Residuals",
      main = "Residual Plot")
 abline(h = 0, col = "red", lty = 2)
 boxplot(residuals, main = "Boxplot of Residuals")
+
+# Calculating the effect in biologically meaningful way ------
+
+# Get mean and SD of the variable before scaling
+MeanAbsDiff <- attr(dt_summary_clean$MeanAbsDiff_scaled, "scaled:center")
+sd_MeanAbsDiff <- attr(dt_summary_clean$MeanAbsDiff_scaled, "scaled:scale")
+
+cat("Mean detection time (ms):", MeanAbsDiff, "\n")
+cat("Standard deviation (ms):", sd_MeanAbsDiff, "\n")
+
+# Extract the fixed-effect estimates
+est_MeanAbsDiff <- fixef(brms_model)["MeanAbsDiff_scaled", "Estimate"]
+intercept <- fixef(brms_model)["Intercept", "Estimate"]
+
+cat("Log-odds effect of 1 SD (scaled) increase:", est_MeanAbsDiff, "\n")
+
+# Convert log-odds to probabilities using inverse logit
+inv_logit <- function(x) 1 / (1 + exp(-x))
+
+p_mean <- inv_logit(intercept)                         # mean detection time (scaled = 0)
+p_plus1 <- inv_logit(intercept + est_MeanAbsDiff)     # +1 SD (scaled = +1)
+p_minus1 <- inv_logit(intercept - est_MeanAbsDiff)    # -1 SD (scaled = -1)
+
+# Print
+cat("Probability at mean detection time:", round(p_mean, 3), "\n")
+cat("Probability at +1 SD (", round(MeanAbsDiff + sd_MeanAbsDiff, 1), " ms):", round(p_plus1, 3), "\n")
+cat("Probability at -1 SD (", round(MeanAbsDiff - sd_MeanAbsDiff, 1), " ms):", round(p_minus1, 3), "\n")
+
+
+### Plot model-------------
+
+# Generate a prediction grid
+pred_grid <- dt_summary_clean %>%
+  # Keep only MeanAbsDiff and scale it like in the model
+  mutate(MeanAbsDiff_scaled = (MeanAbsDiff - mean(MeanAbsDiff, na.rm = TRUE)) / sd(MeanAbsDiff, na.rm = TRUE)) %>%
+  summarise(
+    MeanAbsDiff_min = min(MeanAbsDiff, na.rm = TRUE),
+    MeanAbsDiff_max = max(MeanAbsDiff, na.rm = TRUE)
+  )
+
+# Create a sequence across the observed range
+newdata <- data.frame(
+  MeanAbsDiff_scaled = seq(
+    (pred_grid$MeanAbsDiff_min - mean(dt_summary_clean$MeanAbsDiff)) / sd(dt_summary_clean$MeanAbsDiff),
+    (pred_grid$MeanAbsDiff_max - mean(dt_summary_clean$MeanAbsDiff)) / sd(dt_summary_clean$MeanAbsDiff),
+    length.out = 100
+  ),
+  N.daphnia = 1
+)
+
+#Get predicted probabilities from the brms model
+pred_matrix <- posterior_epred(brms_model, newdata = newdata, re_formula = NA)
+pred_mean <- apply(pred_matrix, 2, mean)
+pred_lower <- apply(pred_matrix, 2, quantile, probs = 0.025)
+pred_upper <- apply(pred_matrix, 2, quantile, probs = 0.975)
+
+# Convert scaled back to milliseconds
+MeanAbsDiff_mean <- attr(dt_summary_clean$MeanAbsDiff_scaled, "scaled:center")
+MeanAbsDiff_sd <- attr(dt_summary_clean$MeanAbsDiff_scaled, "scaled:scale")
+
+plot_df <- data.frame(
+  MeanAbsDiff_ms = MeanAbsDiff_mean + newdata$MeanAbsDiff_scaled * MeanAbsDiff_sd,
+  pred_mean = pred_mean,
+  pred_lower = pred_lower,
+  pred_upper = pred_upper
+)
+
+# Add raw data points
+raw_data <- dt_summary_clean %>%
+  mutate(Mortality = deaths / N.daphnia)
+
+# Plot
+p3 <- ggplot(plot_df, aes(x = MeanAbsDiff_ms, y = pred_mean)) +
+  geom_ribbon(aes(ymin = pred_lower, ymax = pred_upper), fill = "#9e9ac8", alpha = 0.2) +
+  geom_line(color = "#9e9ac8", size = 1) +
+  geom_point(data = raw_data, aes(x = MeanAbsDiff, y = Mortality),
+             color = "#8856a7", alpha = 0.7, size = 3) +
+  labs(
+    x = "Mean difference in detection time (ms)",
+    y = NULL
+    ) +
+  theme_classic(base_size = 14) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+    )
+
+p3
+
+
+ggsave("output/p3.png",
+       p3,
+       width = 5,
+       height = 4,
+       dpi = 300
+)
+
+# Plot grid
+#Keep p1 and p2 on work environment from script 4
+g1 <- plot_grid(
+  p1, p2, p3,
+  labels = c(" (a)", " (b)", " (c)"),
+  label_fontface = "italic", ncol = 3
+)
+g1
+
+ggsave("output/g1.png",
+       g1,
+       width = 15,
+       height = 5,
+       dpi = 300
+)
