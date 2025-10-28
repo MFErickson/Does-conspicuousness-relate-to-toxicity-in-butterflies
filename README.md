@@ -1,9 +1,9 @@
-# Proceedings of the Royal Society B: Biological Sciences
+# Are toxic butterflies easier to detect?  
 
     
 ***
 
-**Journal**: Proceedings of the Royal Society B: Biological Sciences [https://royalsocietypublishing.org/journal/rspb]
+**Journal**: Ecology and Evolution [https://onlinelibrary.wiley.com/journal/20457758]
 
 **DOI**:   XXXXXXX
 

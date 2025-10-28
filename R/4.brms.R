@@ -115,6 +115,8 @@ cat("Probability at -1 SD (", round(mean_dorsal - sd_dorsal, 1), " ms):", round(
 
 ### Plot model-------------
 
+#Needs to be done in order
+
 #Plot Dorsal -------------
 # Generate a prediction grid
 pred_grid_dorsal <- dt_filtered %>%
@@ -160,7 +162,7 @@ p1 <- ggplot(plot_df, aes(x = Dorsal_ms, y = pred_mean)) +
   geom_ribbon(aes(ymin = pred_lower, ymax = pred_upper), fill = "#9e9ac8", alpha = 0.2) +
   geom_line(color = "#9e9ac8", size = 1) +
   geom_point(data = raw_data, aes(x = Dorsal.time, y = Mortality),
-             color = "#8856a7", alpha = 0.7, size = 3) +
+             color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Dorsal detection time (ms)",
     y = expression(paste("Predicted probability of ", italic("Daphnia"), " death")),
@@ -222,7 +224,7 @@ p2 <- ggplot(plot_df, aes(x = Ventral_ms, y = pred_mean)) +
   geom_ribbon(aes(ymin = pred_lower, ymax = pred_upper), fill = "#9e9ac8", alpha = 0.2) +
   geom_line(color = "#9e9ac8", size = 1) +
   geom_point(data = raw_data, aes(x = Ventral.time, y = Mortality),
-             color = "#8856a7", alpha = 0.7, size = 3) +
+             color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Ventral detection time (ms)",
     y = NULL) +

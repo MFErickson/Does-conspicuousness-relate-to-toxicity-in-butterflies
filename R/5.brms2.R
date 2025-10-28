@@ -175,7 +175,7 @@ p3 <- ggplot(plot_df, aes(x = MeanAbsDiff_ms, y = pred_mean)) +
   geom_ribbon(aes(ymin = pred_lower, ymax = pred_upper), fill = "#9e9ac8", alpha = 0.2) +
   geom_line(color = "#9e9ac8", size = 1) +
   geom_point(data = raw_data, aes(x = MeanAbsDiff, y = Mortality),
-             color = "#8856a7", alpha = 0.7, size = 3) +
+             color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Mean difference in detection time (ms)",
     y = NULL
@@ -200,14 +200,15 @@ ggsave("output/p3.png",
 #Keep p1 and p2 on work environment from script 4
 g1 <- plot_grid(
   p1, p2, p3,
-  labels = c(" (a)", " (b)", " (c)"),
+  labels = c("  (a)", " (b)", " (c)"),
   label_fontface = "italic", ncol = 3
 )
 g1
 
 ggsave("output/g1.png",
        g1,
-       width = 15,
-       height = 5,
+       width = 13,
+       height = 4,
        dpi = 300
 )
+
