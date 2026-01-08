@@ -1,0 +1,25 @@
+
+> print(summary(brms_model))
+ Family: binomial 
+  Links: mu = logit 
+Formula: deaths | trials(N.daphnia) ~ Dorsal.time_scaled + Ventral.time_scaled + (1 | gr(Phylo, cov = phylo_cov)) 
+   Data: dt_filtered (Number of observations: 59) 
+  Draws: 4 chains, each with iter = 5000; warmup = 1000; thin = 10;
+         total post-warmup draws = 1600
+
+Multilevel Hyperparameters:
+~Phylo (Number of levels: 43) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.46      0.25     1.03     2.01 1.00     1507     1407
+
+Regression Coefficients:
+                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept              -1.22      0.53    -2.31    -0.13 1.00     1467     1422
+Dorsal.time_scaled     -0.34      0.14    -0.63    -0.08 1.00     1442     1613
+Ventral.time_scaled    -0.25      0.14    -0.53     0.03 1.00     1399     1534
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
+
+> sink()

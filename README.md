@@ -23,7 +23,7 @@ The `image` folder contains 2 folders with:
 
 ## 3. **Output**
 the folder `output` contains:
-- 2 txt file with the summary from the brms models
+- 3 txt file with the summary from the brms models
 - image of all of the butterfly images filtered by detection time
 - image of all dorsal side of butterflies organized by detection time and kill percentage
 - image of all ventral side of butterflies organized by detection time and kill percentage
@@ -36,7 +36,7 @@ the folder `output` contains:
 
 ## 4. **R** 
 the folder `R` contains:
-- 11 scripts described in the README.txt file
+- 12 scripts described in the README.txt file
 - CSV-README.txt file that describes the variables in the "conspicuoussness.csv" spreadsheet
 - download-stats. txt which timestamps when the data was downloaded
 - README.txt which describes the scripts on this folder

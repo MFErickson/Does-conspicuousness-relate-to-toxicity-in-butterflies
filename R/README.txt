@@ -12,6 +12,7 @@ Summary of files in R folder
 6.raw-plots.R: plots raw data from brms models (with no predicted relationship).
 7.Plot-phylo-effect.R: plots phylogenetic effect output from script 4.
 8.player-learning.R: Analyses if players get better after multiple plays
+9.brms-evo.R: run brms model for ventral and dorsal time and plots predicted relationship excluding species that only have Ventral photographs.
 
 
 CSV-README.txt: Contents of the conspicuousness.csv file.
