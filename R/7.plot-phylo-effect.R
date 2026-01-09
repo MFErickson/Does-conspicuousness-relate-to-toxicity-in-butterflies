@@ -87,7 +87,7 @@ p <- ggplot(tree_data, aes(x = x, y = y)) +
   ) +
   scale_color_gradient2(
     low = "blue", mid = "white", high = "red", midpoint = 0,
-    name = "Phylogenetic\nEffect in\nToxicity"
+    name = "Mean Posterior\nPhylogenetic\nEffect in Toxicity"
   ) +
   geom_tiplab(
     data = tip_data,
@@ -116,3 +116,4 @@ ggsave(
   height = 5,
   dpi = 300
 )
+
