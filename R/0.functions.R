@@ -42,6 +42,10 @@ plotAllInDir <- function(dir) {
   }
 }
 
+# Plots all of the specified PNG files in a grid, ordered from left-to-right
+# then top-to-bottom.
+# @param nr Desired number of rows. Note that this may be adjusted downwards
+#   depending on the number of images to be displayed
 plotAll <- function(files, label = basename(files[i]), caption, cap.cex = 1, nr = NA, 
                     scale = NA, mar = c(0, 0.5, 0, 0.5), sexSymbol = NA, txt.col = 1) {
   # Extend txt.col to correct length 
@@ -62,11 +66,25 @@ plotAll <- function(files, label = basename(files[i]), caption, cap.cex = 1, nr 
     scale <- 1 / maxSz
   par(mar = mar)
   if (is.na(nr)) nr <- ceiling(sqrt(length(files))) # Default to square layout
-  nc <- ceiling(length(files) / nr)
+  
+  # Calculate rows and columns. 
+  nc <- ceiling(length(buts) / nr)
+  # I should have made no. of columns the parameter to make this simpler :(
+  # Sometimes have to adjust the number of rows, e.g. if n = 61 and nr = 10,
+  # then nc = 7 with 70 grid cells, so there's a blank row and we adjust nr down
+  # to 9
+  gap <- nr * nc - length(buts)
+  while (gap >= nc) {
+    nr <- nr - 1
+    nc <- ceiling(n / nr)
+    gap <- nr * nc - length(buts)
+  }
+  # cat(sprintf("%d rows, %d columns, %d images\n", nr, nc, length(buts)))
   plot(NULL, xlim = c(1, nc), ylim = c(1, nr), xaxs = 'i', axes = FALSE, xlab = "", ylab = "", asp = 1)
   for (i in seq_along(buts) ) {
     # Adjust i to leave a gap at the end instead of the beginning of the sequence
-    ai <- i + nc - 1 - (length(buts) - 1) %% nc
+    ai <- i + gap
+    # cat(sprintf("%d =? %d\n", nc - 1 - (length(buts) - 1) %% nc, gap))
     cx <- nc - (ai - 1) %% nc
     cy <- (ai - 1) %/% nc + 1
     # cat(sprintf("%d: %g, %g\n", i, cx, cy))

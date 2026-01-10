@@ -77,8 +77,8 @@ JPlotToJPEG("output/dorsal-ventral.jpg", {
 # CLS_COL <- c("#db4804", "#2e0101")
 CLS_COL <- c("#B32B00", "#140000")
 
-# Ventral ordered by time----
-JPlotToPNG("output/conspicuous-butts-ventral.png", {
+# Ventral ordered by detection time----
+plotVentralButs <- function() {
   ventral <- comb[!duplicated(comb$Ventral.photo) & !is.na(comb$Ventral.photo), ]
   ventral <- ventral[order(ventral$Ventral.time, decreasing = TRUE), ]
   label <- paste(ventral$Binomial, ifelse(is.na(ventral$Sex), "", " "))
@@ -97,17 +97,21 @@ JPlotToPNG("output/conspicuous-butts-ventral.png", {
   })
   
   sc <- plotAll(file.path("images/butterflies", ventral$Ventral.URL),
-          label,
-          caption,
-          scale = 0.0028, # Make scale appear the same as dorsal
-          nr = 8,
-          mar = c(3.5, 0, 2, 0),
-          cap.cex = 1.35, # No butterflies were ventrally sexually dimorphic, so don't show sex
-          txt.col = col)
-}, width = 2000, aspectRatio = 1.1, res = 110)
+                label,
+                caption,
+                scale = 0.0028, # Make scale appear the same as dorsal
+                nr = 9,
+                mar = c(3.5, 0, 2, 0),
+                cap.cex = 1.35, # No butterflies were ventrally sexually dimorphic, so don't show sex
+                txt.col = col)
+}
+
+# Produce the plots, PNG and TIFF
+JPlotToPNG("output/conspicuous-butts-ventral.png", plotVentralButs, width = 1800, aspectRatio = 0.85, res = 110)
+JPlotToTIFF("output/conspicuous-butts-ventral.tif", plotVentralButs, units = "px", width = 1800, aspectRatio = 0.85, res = 110)
 
 # Dorsal ordered by time----
-JPlotToPNG("output/conspicuous-butts-dorsal.png", {
+plotDorsalButs <- function() {
   dorsal <- comb[!duplicated(comb$Dorsal.photo) & !is.na(comb$Dorsal.photo), ]
   dorsal <- dorsal[order(dorsal$Dorsal.time, decreasing = TRUE), ]
   label <- paste(dorsal$Binomial, ifelse(is.na(dorsal$Sex), "", " "))
@@ -126,9 +130,13 @@ JPlotToPNG("output/conspicuous-butts-dorsal.png", {
                 label,
                 caption,
                 scale = 0.0030, # Make scale appear the same as ventral
-                nr = 8,
+                nr = 9,
                 mar = c(3.5, 0, 1, 0),
                 cap.cex = 1.35,
                 sexSymbol = dorsal$Sex,
                 txt.col = col)
-}, width = 2000, aspect = 1.1, res = 110)
+}
+
+# Produce the plots, PNG and TIFF
+JPlotToPNG("output/conspicuous-butts-dorsal.png", plotDorsalButs, width = 1800, aspect = 0.85, res = 110)
+JPlotToTIFF("output/conspicuous-butts-dorsal.tif", plotDorsalButs, units = "px", width = 1800, aspect = 0.85, res = 110)

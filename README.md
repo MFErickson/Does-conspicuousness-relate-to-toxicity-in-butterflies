@@ -25,8 +25,8 @@ The `image` folder contains 2 folders with:
 the folder `output` contains:
 - 3 txt file with the summary from the brms models
 - image of all of the butterfly images filtered by detection time
-- image of all dorsal side of butterflies organized by detection time and kill percentage
-- image of all ventral side of butterflies organized by detection time and kill percentage
+- 2 images (png & tif) of all dorsal side of butterflies organized by detection time and kill percentage
+- 2 images (png & tif) of all ventral side of butterflies organized by detection time and kill percentage
 - spreadsheet build from the data spreadsheet that calculates all our variables. For description please see CSV-README.txt of R folder.
 - image of all of the butterfly images filtered by death percentage
 - Correlation plot of death proportion and dorsal/ventral detection time and of mean time difference and toxicity
