@@ -165,9 +165,12 @@ p1 <- ggplot(plot_df, aes(x = Dorsal_ms, y = pred_mean)) +
              color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Dorsal detection time (ms)",
-    y = expression(paste("Predicted probability of ", italic("Daphnia"), " death")),
+    y = expression(paste("Predicted probability of ", italic(" Daphnia"), " death")),
   ) +
   theme_classic(base_size = 14)
+
+p1 <- p1 +
+  coord_cartesian(xlim = c(2500, 10000))
 
 p1
 
@@ -227,12 +230,16 @@ p2 <- ggplot(plot_df, aes(x = Ventral_ms, y = pred_mean)) +
              color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Ventral detection time (ms)",
-    y = NULL) +
+    y = expression(paste("Predicted probability of ", italic(" Daphnia"), " death")),
+  ) +
   theme_classic(base_size = 14) +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   )
+
+p2 <- p2 +
+  coord_cartesian(xlim = c(2500, 10000))
 
 p2
 

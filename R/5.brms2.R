@@ -178,8 +178,7 @@ p3 <- ggplot(plot_df, aes(x = MeanAbsDiff_ms, y = pred_mean)) +
              color = "#8856a7", alpha = 0.7, size = 4) +
   labs(
     x = "Mean difference in detection time (ms)",
-    y = NULL
-    ) +
+    y = expression(paste("Predicted probability of ", italic(" Daphnia"), " death")),) +
   theme_classic(base_size = 14) +
   theme(
     axis.text.y = element_blank(),
@@ -200,15 +199,15 @@ ggsave("output/p3.png",
 #Keep p1 and p2 on work environment from script 4
 g1 <- plot_grid(
   p1, p2, p3,
-  labels = c("  (a)", " (b)", " (c)"),
+  labels = c("(a)", "(b)", "(c)"),
   label_fontface = "italic", ncol = 3
 )
 g1
 
 ggsave("output/g1.png",
        g1,
-       width = 13,
-       height = 4,
+       width = 15,
+       height = 5,
        dpi = 300
 )
 

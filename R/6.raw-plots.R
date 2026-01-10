@@ -75,7 +75,7 @@ g1
 
 
 
-ggsave("output/g1.png",
+ggsave("output/g-raw.png",
        g1,
        width = 14,
        height = 4,

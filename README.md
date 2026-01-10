@@ -33,6 +33,7 @@ the folder `output` contains:
 - Phylogenetic tree plotting genus effect on toxicity
 - 3 png plots with the predicted probability of Daphnia death (analysing correlating detection time and number of plays)
 - 1 png plot that joins the previous 3 plots
+- 1 png plot that plots the raw Daphnia death
 
 ## 4. **R** 
 the folder `R` contains:
