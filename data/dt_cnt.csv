@@ -1,0 +1,57 @@
+ID,Family,Binomial,Ndaphnia,30m,60m,120m,180m,240m,death.p
+met6,Control,Methanol,10,0,0,0,0,0,0
+met7,Control,Methanol,10,0,0,0,0,0,0
+met8,Control,Methanol,8,0,0,0,0,0,0
+met9,Control,Methanol,10,0,0,0,0,0,0
+crt1,Control,Acheta domesticus,10,0,0,0,0,0,0
+rch1,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+rch10,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+rch2,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+rch6,Control,Nauphoeta cinerea,10,2,2,2,2,2,0.2
+rch7,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+rch8,Control,Nauphoeta cinerea,10,1,1,1,1,1,0.1
+rch9,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+H2O14,Control,H2O,10,0,0,0,0,0,0
+H2O17,Control,H2O,10,0,0,0,0,0,0
+H2O4,Control,H2O,10,0,0,0,0,0,0
+H2O8,Control,H2O,10,0,0,0,0,0,0
+crt3,Control,Acheta domesticus,10,0,0,0,0,0,0
+H2O9,Control,H2O,12,0,0,0,0,1,0.083333333
+crt5,Control,Acheta domesticus,10,0,0,0,0,2,0.2
+crt7,Control,Acheta domesticus,10,0,0,0,0,0,0
+crt9,Control,Acheta domesticus,10,0,0,0,0,0,0
+crt10,Control,Acheta domesticus,10,0,0,0,0,0,0
+crt2,Control,Acheta domesticus,10,1,1,1,1,1,0.1
+H2O15,Control,H2O,10,0,0,0,0,0,0
+crt4,Control,Acheta domesticus,10,0,0,0,0,0,0
+crt6,Control,Acheta domesticus,10,0,0,0,0,0,0
+crt8,Control,Acheta domesticus,10,0,0,0,0,0,0
+H2O10,Control,H2O,10,0,0,0,0,0,0
+H2O11,Control,H2O,10,0,0,0,0,0,0
+H2O12,Control,H2O,10,0,0,0,0,0,0
+H2O13,Control,H2O,10,0,0,0,0,0,0
+met16,Control,Methanol,10,0,0,0,0,0,0
+H2O5,Control,H2O,10,0,0,0,0,0,0
+H2O16,Control,H2O,10,0,0,0,0,0,0
+H2O7,Control,H2O,10,0,0,0,0,0,0
+H2O18,Control,H2O,10,0,0,0,0,0,0
+met2,Control,Methanol,10,0,0,0,0,0,0
+H2O2,Control,H2O,10,0,0,0,0,0,0
+H2O21,Control,H2O,10,0,0,0,0,0,0
+H2O3,Control,H2O,10,0,0,0,0,0,0
+H2O6,Control,H2O,10,0,0,0,0,0,0
+met17,Control,Methanol,10,0,0,0,0,0,0
+met18,Control,Methanol,10,0,0,0,0,0,0
+met10,Control,Methanol,10,0,0,1,1,1,0.1
+rch3,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+met21,Control,Methanol,10,0,0,0,0,0,0
+met14,Control,Methanol,10,0,0,0,0,0,0
+met12,Control,Methanol,10,0,0,0,0,0,0
+met13,Control,Methanol,10,0,0,0,0,0,0
+met3,Control,Methanol,10,0,0,0,0,0,0
+met11,Control,Methanol,10,0,0,0,0,0,0
+met5,Control,Methanol,10,0,0,0,0,0,0
+met15,Control,Methanol,10,0,0,0,0,0,0
+met4,Control,Methanol,10,0,0,0,0,0,0
+rch5,Control,Nauphoeta cinerea,10,0,0,0,0,0,0
+rch4,Control,Nauphoeta cinerea,10,0,0,0,0,0,0

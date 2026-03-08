@@ -12,7 +12,7 @@
 
 ## 1. **Data Folder**
 The `data` folder contains:
-- The raw data including: a spreadsheet with toxicity data, 2 spreadsheets with downloaded metrics from the game, and one spreadsheet with the photo legends.
+- The raw data including: a spreadsheet with butterfly toxicity data, a spreadsheet with toxicity data, 2 spreadsheets with downloaded metrics from the game, and one spreadsheet with the photo legends.
 - 2 png files: mars spear and venus mirror symbols for building the images
 - Phylogenetic data from kawahara et al. 2023. [https://doi.org/10.1098/rsbl.2008.0758]
 
