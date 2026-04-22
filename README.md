@@ -5,7 +5,7 @@
 
 **Journal**: Ecology and Evolution [https://onlinelibrary.wiley.com/journal/20457758]
 
-**DOI**:   XXXXXXX
+**DOI**:   https://doi.org/10.1002/ece3.73357
 
 ## Content of the repository
 
@@ -45,4 +45,4 @@ the folder `R` contains:
 
 When using the __data available__ in this repository, please cite the original publication.
 
-Contact XXXXXXXXXXXXXXXXX@gmail.com for any further information.  
+Contact mariliaerickson@gmail.com for any further information.  
